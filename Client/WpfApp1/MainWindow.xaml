@@ -1,0 +1,54 @@
+﻿<Window x:Class="ChatClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Chat Client" Height="600" Width="800" Closing="Window_Closing">
+    <Grid>
+        <!-- Panel de Login -->
+        <StackPanel x:Name="LoginPanel" HorizontalAlignment="Center" VerticalAlignment="Center" Width="300">
+            <TextBlock Text="Chat Login" FontSize="20" Margin="0,0,0,20" HorizontalAlignment="Center"/>
+            <TextBox x:Name="TxtUsername" Margin="0,0,0,10" Padding="5" 
+                    Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"/>
+            <PasswordBox x:Name="TxtPassword" Margin="0,0,0,10" Padding="5" />
+            <TextBlock x:Name="LoginMessage" Foreground="Red" Visibility="Collapsed" TextWrapping="Wrap"/>
+            <Button x:Name="BtnLogin" Content="Login / Register" Click="BtnLogin_Click" Padding="10,5"/>
+        </StackPanel>
+
+        <!-- Panel de Chat -->
+        <Grid x:Name="ChatPanel" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Cambiar TextBox por RichTextBox para soportar imágenes -->
+            <RichTextBox x:Name="TxtChat" Grid.Row="0" IsReadOnly="True" 
+                        VerticalScrollBarVisibility="Auto" Background="#FFF0F0F0" Padding="10"/>
+
+            <!-- Panel de selección de destinatarios -->
+            <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Para:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                <ComboBox x:Name="CmbRecipients" Width="150" Margin="5">
+                    <ComboBoxItem Content="Todos" IsSelected="True" Tag="ALL"/>
+                </ComboBox>
+                <TextBlock x:Name="TxtOnlineUsers" Margin="5,0,0,0" VerticalAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="5">
+                <TextBox x:Name="TxtMessage" Width="400" Margin="0,0,5,0" Padding="5" 
+                         KeyDown="TxtMessage_KeyDown"/>
+                <Button x:Name="BtnSend" Content="Send" Width="80" Click="BtnSend_Click" Margin="0,0,5,0"/>
+                <Button x:Name="BtnSendImage" Content="Send Image" Width="100" Click="BtnSendImage_Click"/>
+                <Button x:Name="BtnReconnect" Content="Reconectar" Click="BtnReconnect_Click" 
+                        Visibility="Collapsed" Margin="5"/>
+            </StackPanel>
+
+            <StatusBar Grid.Row="3">
+                <StatusBarItem>
+                    <TextBlock x:Name="StatusText" Text="Disconnected"/>
+                </StatusBarItem>
+            </StatusBar>
+        </Grid>
+    </Grid>
+</Window>
