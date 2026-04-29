@@ -29,12 +29,12 @@ Desarrollada como proyecto académico para la materia de *Current Programming*.
 ## Estructura del proyecto
 
 ```
-Servidor_Mercado_Casas/
+Servidor/
 └── ConsoleApp1/
     └── ConsoleApp1/
         └── Program.cs      # Servidor TCP + lógica de auth + SQLite
 
-Cliente_Mercado_Casas/
+Cliente/
 └── WpfApp1/
     └── WpfApp1/
         ├── MainWindow.xaml     # UI del cliente
