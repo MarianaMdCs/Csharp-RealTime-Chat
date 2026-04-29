@@ -50,7 +50,7 @@ Cliente/
 
 ### 1. Iniciar el servidor
 
-Abre el proyecto `ConsoleApp1` (carpeta `Servidor_Mercado_Casas`) y ejecútalo:
+Abre el proyecto `ConsoleApp1` (carpeta `Servidor`) y ejecútalo:
 
 ```bash
 cd ConsoleApp1/ConsoleApp1
@@ -67,7 +67,7 @@ El servidor escucha en el puerto **5000**. La base de datos `chat.db` se crea au
 
 ### 2. Abrir clientes
 
-Abre el proyecto `WpfApp1` (carpeta `Cliente_Mercado_Casas`) y ejecuta **dos o más instancias**:
+Abre el proyecto `WpfApp1` (carpeta `Cliente`) y ejecuta **dos o más instancias**:
 
 ```bash
 cd WpfApp1/WpfApp1
